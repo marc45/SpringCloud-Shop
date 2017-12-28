@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @Component
 @Controller
 public class HelloController {
-    @RequestMapping("/")
+    @RequestMapping("/test")
     public String index(ModelMap map) {
         // 加入一个属性，用来在模板中读取
         map.addAttribute("host", "http://blog.didispace.com");

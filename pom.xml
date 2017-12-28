@@ -17,6 +17,8 @@
         <module>api-gateway</module>
         <module>goods</module>
         <module>order</module>
+        <module>model</module>
+        <module>carousel-service</module>
     </modules>
 
     <parent>
