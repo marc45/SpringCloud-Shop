@@ -22,7 +22,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/")
-public class HomeController {
+public class HomeController extends BaseController{
     @Autowired
     private WebService webService;
 
@@ -34,6 +34,7 @@ public class HomeController {
         model.put("category", category);
         model.put("carousels", carousels);
         // 楼层
+        String username = (String) session.getAttribute("userName");
         return "home";
     }
 

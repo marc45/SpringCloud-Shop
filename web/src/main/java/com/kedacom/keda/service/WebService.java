@@ -1,11 +1,15 @@
 package com.kedacom.keda.service;
 
+import com.kedacom.keda.domain.Result;
+import com.kedacom.keda.utils.ResultUtil;
 import com.kedacom.model.Carousel;
 import com.kedacom.model.Category;
+import com.kedacom.model.User;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -29,7 +33,7 @@ public class WebService {
     @HystrixCommand(fallbackMethod = "getCategoryFallback")
     public Category getCategory(Long id) {
         //        System.out.println("getCategory");
-        return restTemplate.getForEntity("http://EUREKA-GOODS/category/" + id, Category.class).getBody();
+        return restTemplate.getForEntity("http://CATEGORY-SERVICE/category/" + id, Category.class).getBody();
     }
 
     private Category getCategoryFallback(Long id) {
@@ -46,5 +50,15 @@ public class WebService {
     private List<Carousel> getCarousels() {
         logger.error("CAROUSEL-SERVICE unavailable");
         return new ArrayList<>();
+    }
+
+    @HystrixCommand(fallbackMethod = "getByNameFallback")
+    public User getByName(String name){
+        return restTemplate.getForEntity("http://USER-SERVICE/user/getByName/" + name,User.class).getBody();
+    }
+
+    private User getByNameFallback(String name) {
+        logger.error("CAROUSEL-SERVICE unavailable");
+        return new User();
     }
 }

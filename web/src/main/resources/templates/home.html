@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -71,10 +71,12 @@
 			<!--轮播 -->
 			<div class="am-slider am-slider-default scoll" data-am-flexslider="" id="demo-slider-0">
 				<ul class="am-slides">
-					<li class="banner1"><a href="introduction.html"><img src="/eureka-web/img/ad1.jpg" /></a></li>
-					<li class="banner2"><a><img src="/eureka-web/img/ad2.jpg" /></a></li>
-					<li class="banner3"><a><img src="/eureka-web/img/ad3.jpg" /></a></li>
-					<li class="banner4"><a><img src="/eureka-web/img/ad4.jpg" /></a></li>
+					<li th:each="carousel, iterStat : ${carousels}" th:class="${carousel.body}">
+						<a><img th:src="${carousel.pictureUrl}" /></a>
+					</li>
+					<!--<li class="banner2"><a><img src="/eureka-web/img/ad2.jpg" /></a></li>-->
+					<!--<li class="banner3"><a><img src="/eureka-web/img/ad3.jpg" /></a></li>-->
+					<!--<li class="banner4"><a><img src="/eureka-web/img/ad4.jpg" /></a></li>-->
 
 				</ul>
 			</div>
@@ -87,7 +89,9 @@
 			   <div class="long-title"><span class="all-goods">全部分类</span></div>
 			   <div class="nav-cont">
 					<ul>
-						<li class="index"><a href="#">首页</a></li>
+						<li class="index">
+							<a href="#">首页</a>
+						</li>
 						<li class="qc"><a href="#">闪购</a></li>
 						<li class="qc"><a href="#">限时抢</a></li>
 						<li class="qc"><a href="#">团购</a></li>
@@ -701,7 +705,8 @@
 								<img src="/eureka-web/img/getAvatar.do.jpg"/>
 							</a>
 							<em>
-								Hi,<span class="s-name">小叮当</span>
+								Hi,<span class="s-name" th:if="${session.userName != null}" th:text="${session.userName}"></span>
+								<span class="s-name" th:if="${session.userName == null}">未登录</span>
 								<a href="#"><p>点击更多优惠活动</p></a>
 							</em>
 						</div>
@@ -975,8 +980,8 @@
 								<a href="# ">核桃仁</a>
 							</div>
 							<span class="more ">
-                    <a class="more-link " href="# ">更多美味</a>
-                        </span>
+                    			<a class="more-link " href="# ">更多美味</a>
+                        	</span>
 						</div>
 					</div>
 					<div class="am-g am-g-fixed floodTwo ">
@@ -1115,98 +1120,16 @@
 						</div>
 					</div>
 					<div class="am-g am-g-fixed flood method3 ">
-						<ul class="am-thumbnails ">
-							<li>
+						<ul class="am-thumbnails" th:each="level1 : ${category.getChilds()}">
+							<li >
 								<div class="list ">
 									<a href="# ">
-										<img src="/eureka-web/img/cp.jpg " />
-										<div class="pro-title ">萨拉米 1+1小鸡腿</div>
-										<span class="e-price ">￥29.90</span>
+										<img th:src="${level1.img}" />
+										<div class="pro-title" th:text="${level1.name}"></div>
+										<span class="e-price" th:text="${level1.price}"></span>
 									</a>
 								</div>
 							</li>
-							<li>
-								<div class="list ">
-									<a href="# ">
-										<img src="/eureka-web/img/cp2.jpg " />
-										<div class="pro-title ">ZEK 原味海苔</div>
-										<span class="e-price ">￥8.90</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="list ">
-									<a href="# ">
-										<img src="/eureka-web/img/cp.jpg " />
-										<div class="pro-title ">萨拉米 1+1小鸡腿</div>
-										<span class="e-price ">￥29.90</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="list ">
-									<a href="# ">
-										<img src="/eureka-web/img/cp2.jpg " />
-										<div class="pro-title ">ZEK 原味海苔</div>
-										<span class="e-price ">￥8.90</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="list ">
-									<a href="# ">
-										<img src="/eureka-web/img/cp.jpg " />
-										<div class="pro-title ">萨拉米 1+1小鸡腿</div>
-										<span class="e-price ">￥29.90</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="list ">
-									<a href="# ">
-										<img src="/eureka-web/img/cp2.jpg " />
-										<div class="pro-title ">ZEK 原味海苔</div>
-										<span class="e-price ">￥8.90</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="list ">
-									<a href="# ">
-										<img src="/eureka-web/img/cp.jpg " />
-										<div class="pro-title ">萨拉米 1+1小鸡腿</div>
-										<span class="e-price ">￥29.90</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="list ">
-									<a href="# ">
-										<img src="/eureka-web/img/cp2.jpg " />
-										<div class="pro-title ">ZEK 原味海苔</div>
-										<span class="e-price ">￥8.90</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="list ">
-									<a href="# ">
-										<img src="/eureka-web/img/cp.jpg " />
-										<div class="pro-title ">萨拉米 1+1小鸡腿</div>
-										<span class="e-price ">￥29.90</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="list ">
-									<a href="# ">
-										<img src="/eureka-web/img/cp2.jpg " />
-										<div class="pro-title ">ZEK 原味海苔</div>
-										<span class="e-price ">￥8.90</span>
-									</a>
-								</div>
-							</li>
-
 						</ul>
 
 					</div>

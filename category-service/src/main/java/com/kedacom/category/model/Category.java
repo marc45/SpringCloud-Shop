@@ -1,4 +1,4 @@
-package com.kedacom.model;
+package com.kedacom.category.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
