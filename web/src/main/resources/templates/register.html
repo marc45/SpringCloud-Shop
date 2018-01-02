@@ -39,8 +39,8 @@
 									<form method="post">
 										
 									   <div class="user-email">
-												<label for="email"><i class="am-icon-envelope-o"></i></label>
-												<input type="email" name="" id="email" placeholder="请输入邮箱账号"/>
+												<label for="name"><i class="am-icon-envelope-o"></i></label>
+												<input type="email" name="" id="name" placeholder="请输入邮箱账号"/>
 										</div>
 										<div class="user-pass">
 											<label for="password"><i class="am-icon-lock"></i></label>
@@ -59,7 +59,7 @@
 										</label>
 							  		</div>
 									<div class="am-cf">
-										<input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl"/>
+										<input type="submit" id="btn_submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl"/>
 									</div>
 
 								</div>
@@ -91,7 +91,7 @@
 										</label>
 							  	</div>
 										<div class="am-cf">
-											<input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl"/>
+											<input type="submit" id="" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl"/>
 										</div>
 								
 									<hr/>
@@ -133,5 +133,39 @@
 					</div>
 		</div>
 	</body>
+	<script type="application/javascript">
+        $('#btn_submit').click(function(){
+            if(checkUser()){
+                var path_name='/user-service/user';
+                var name = document.getElementById("name").value;
+                var password = document.getElementById("password1").value;
+                $('<form action="'+path_name+'" method="post" target = "_blank" style="display:none" >' +
+                    '<input type="hidden"  name="name" value="'+name+'"/>' +
+                    '<input type="hidden"  name="password" value="'+password+'"/>' +
+                    '</form>').appendTo('body').submit();
+            }
+        })
+
+        function checkUser(){
+            var name = document.getElementById("name").value;
+            var password = document.getElementById("password1").value;
+            var passwordRepeat = document.getElementById("passwordRepeat1").value;
+            if(name == ""  ){
+                alert("用户名不能为空");
+                return false;
+            }
+            if(password == ""  ){
+                alert("密码不能为空");
+                return false;
+            }else{
+                if(password != passwordRepeat){
+                    alert("新旧密码不一致")
+                    return false;
+				}else{
+                    return true;
+				}
+            }
+        }
+	</script>
 
 </html>

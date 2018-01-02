@@ -1,5 +1,6 @@
-package com.kedacom.consumer;
+package com.kedacom.keda.controller;
 
+import com.kedacom.keda.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,14 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by suxiongwei on 2018-01-02.
  */
 @RestController
-public class DcController {
+public class OrderController {
 
-    @Autowired
-    DcClient dcClient;
+    @Autowired OrderService orderService;
 
-    @GetMapping("/consumer")
-    public String dc() {
-        return dcClient.consumer();
+    @GetMapping("/addOrder")
+    public String addOrder() {
+        return orderService.addOrder();
     }
 
 }

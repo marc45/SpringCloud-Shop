@@ -1,4 +1,4 @@
-package com.kedacom.consumer;
+package com.kedacom.keda.service;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
  * 2018科达科技股份有限公司-版权所有
  * Created by suxiongwei on 2018-01-02.
  */
-@FeignClient("eureka-client")
-public interface DcClient {
+@FeignClient("order-service")
+public interface OrderService {
 
-    @GetMapping("/dc")
-    String consumer();
+    @GetMapping("/addOrder")
+    String addOrder();
 
 }

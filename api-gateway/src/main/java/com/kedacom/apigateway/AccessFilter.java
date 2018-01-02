@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * 实习期考核项目
@@ -19,6 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 public class AccessFilter extends ZuulFilter{
 
     private static Logger logger = LoggerFactory.getLogger(AccessFilter.class);
+
+    private static final String[] IGNORE_URI = {"/eureka-web/login"};
 
     //过滤器的类型，它决定过滤器在请求的哪个生命周期中执行。
     @Override public String filterType() {
@@ -38,17 +41,39 @@ public class AccessFilter extends ZuulFilter{
     @Override public Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
+        HttpSession session = ctx.getRequest().getSession();
 
         logger.info("send {} request to {}", request.getMethod(), request.getRequestURL().toString());
 
-        Object accessToken = request.getParameter("accessToken");//http://localhost:8764/eureka-provider/index?accessToken=token
-        if(accessToken == null) {
-            logger.warn("access token is empty");
-            ctx.setSendZuulResponse(false);
-            ctx.setResponseStatusCode(401);
+        /** 默认用户没有登录 */
+        boolean flag = false;
+        /** 获得请求的ServletPath */
+        String servletPath = request.getServletPath();
+        /**  判断请求是否需要拦截 */
+        for (String s : IGNORE_URI) {
+            if (servletPath.contains(s)) {
+                flag = true;
+                break;
+            }
+        }
+
+        if(!flag){
+//            Object accessToken = request.getParameter("accessToken");//http://localhost:8764/eureka-provider/index?accessToken=token
+
+//            Long userId = (Long) session.getAttribute("userId");
+//            if(userId == null) {
+//                logger.warn("userId is empty");
+//                ctx.setSendZuulResponse(false);
+//                ctx.setResponseStatusCode(401);
+//                return null;
+//            }
+//
+//            logger.info("userId ok");
+            return null;
+        }else {
             return null;
         }
-        logger.info("access token ok");
-        return null;
+
+//
     }
 }

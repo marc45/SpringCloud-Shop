@@ -1,0 +1,14 @@
+package com.kedacom.order.service;
+
+import com.kedacom.order.model.Order;
+
+/**
+ * 实习期考核项目
+ * com.kedacom.order.service
+ * 2018-01-02-13:43
+ * 2018科达科技股份有限公司-版权所有
+ * Created by suxiongwei on 2018-01-02.
+ */
+public interface OrderService {
+    Order insertOrder(Order order);
+}

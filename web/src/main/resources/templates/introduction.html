@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -170,8 +170,7 @@
 						<!--规格属性-->
 						<!--名称-->
 						<div class="tb-detail-hd">
-							<h1>	
-				 良品铺子 手剥松子218g 坚果炒货 巴西松子
+							<h1 th:text="${category.name}">
 	          </h1>
 						</div>
 						<div class="tb-detail-list">
@@ -179,11 +178,11 @@
 							<div class="tb-detail-price">
 								<li class="price iteminfo_price">
 									<dt>促销价</dt>
-									<dd><em>¥</em><b class="sys_item_price">56.90</b>  </dd>                                 
+									<dd><em>¥</em><b class="sys_item_price" th:text="${category.price}"></b>  </dd>
 								</li>
 								<li class="price iteminfo_mktprice">
 									<dt>原价</dt>
-									<dd><em>¥</em><b class="sys_item_mktprice">98.00</b></dd>									
+									<dd><em>¥</em><b class="sys_item_mktprice" th:text="${category.price}"></b></dd>
 								</li>
 								<div class="clear"></div>
 							</div>
@@ -434,6 +433,7 @@
 
 										<span class="index-needs-dt-txt">宝贝详情</span></a>
 
+
 								</li>
 
 								<li>
@@ -459,7 +459,8 @@
 											<h4>产品参数：</h4></div>
 										<div class="clear"></div>
 										<ul id="J_AttrUL">
-											<li title="">产品类型:&nbsp;烘炒类</li>
+											<span ></span>
+											<li th:text="${category.detail}"></li>
 											<li title="">原料产地:&nbsp;巴基斯坦</li>
 											<li title="">产地:&nbsp;湖北省武汉市</li>
 											<li title="">配料表:&nbsp;进口松子、食用盐</li>
@@ -477,6 +478,7 @@
 										<div class="attr-list-hd after-market-hd">
 											<h4>商品细节</h4>
 										</div>
+
 										<div class="twlistNews">
 											<img src="/eureka-web/img/tw1.jpg" />
 											<img src="/eureka-web/img/tw2.jpg" />

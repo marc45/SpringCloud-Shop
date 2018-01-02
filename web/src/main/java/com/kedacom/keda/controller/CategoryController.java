@@ -17,32 +17,23 @@ import java.util.Map;
 /**
  * 实习期考核项目
  * com.kedacom.keda.controller
- * 2017-12-28-15:16
- * 2017科达科技股份有限公司-版权所有
- * Created by suxiongwei on 2017-12-28.
+ * 2018-01-02-11:46
+ * 2018科达科技股份有限公司-版权所有
+ * Created by suxiongwei on 2018-01-02.
  */
 @Controller
-@RequestMapping("/")
-public class HomeController{
+@RequestMapping("/category")
+public class CategoryController {
+
     @Autowired
     private WebService webService;
 
+    @GetMapping("/introduction/{id}")
+    public String home(Map<String, Object> model,@PathVariable long id) {
+        Category category = webService.getCategory(id);
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String home(Map<String, Object> model,HttpSession session) {
-        Category category = webService.getCategory(1L);
-        List<Carousel> carousels = webService.getCarousels("home");
-        // 楼层
         model.put("category", category);
-        model.put("carousels", carousels);
-        // 楼层
-        String username = (String) session.getAttribute("userName");
-        return "home";
-    }
 
-    @GetMapping("{url}")
-    public String url(@PathVariable String url){
-        return url;
+        return "introduction";
     }
-
 }
