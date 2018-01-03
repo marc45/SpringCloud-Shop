@@ -12,8 +12,6 @@
         <module>web</module>
         <module>user-service</module>
         <module>eureka-server</module>
-        <module>eureka-client</module>
-        <module>consumer</module>
         <module>api-gateway</module>
         <module>category-service</module>
         <module>order-service</module>
