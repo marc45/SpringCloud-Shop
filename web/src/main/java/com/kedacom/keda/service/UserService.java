@@ -1,8 +1,9 @@
 package com.kedacom.keda.service;
 
 import com.kedacom.model.User;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 实习期考核项目
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient("user-service")
 public interface UserService {
 
-    @GetMapping("/user/getByName/{name}")
-    User getByName(String name);
+    @PostMapping("/user/login")
+    Boolean login(@RequestBody User user);
+
+    @PostMapping("user/insertUser") Boolean register(@RequestBody User user);
 }

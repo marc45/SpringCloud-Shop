@@ -1,5 +1,6 @@
 package com.kedacom.keda.controller;
 
+import com.kedacom.keda.service.CategoryService;
 import com.kedacom.keda.service.WebService;
 import com.kedacom.model.Carousel;
 import com.kedacom.model.Category;
@@ -25,12 +26,11 @@ import java.util.Map;
 @RequestMapping("/category")
 public class CategoryController {
 
-    @Autowired
-    private WebService webService;
+    @Autowired CategoryService categoryService;
 
     @GetMapping("/introduction/{id}")
     public String home(Map<String, Object> model,@PathVariable long id) {
-        Category category = webService.getCategory(id);
+        Category category = categoryService.getCategory(id);
 
         model.put("category", category);
 

@@ -1,6 +1,11 @@
 package com.kedacom.order.service;
 
+import com.kedacom.commons.vo.OrderVo;
+import com.kedacom.model.Category;
 import com.kedacom.order.model.Order;
+import com.kedacom.order.model.OrderCategory;
+
+import java.util.Locale;
 
 /**
  * 实习期考核项目
@@ -10,5 +15,5 @@ import com.kedacom.order.model.Order;
  * Created by suxiongwei on 2018-01-02.
  */
 public interface OrderService {
-    Order insertOrder(Order order);
+    boolean save(OrderVo orderVo);
 }

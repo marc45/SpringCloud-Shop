@@ -33,6 +33,7 @@
 					<div class="menu-hd">
 						<a href="#" target="_top" class="h">亲，请登录</a>
 						<a href="#" target="_top">免费注册</a>
+						<input type="hidden" id="categoryId" th:value="${category.id}"/>
 					</div>
 				</div>
 			</ul>
@@ -170,8 +171,8 @@
 						<!--规格属性-->
 						<!--名称-->
 						<div class="tb-detail-hd">
-							<h1 th:text="${category.name}">
-	          </h1>
+							<h1 th:text="${category.name}"></h1>
+
 						</div>
 						<div class="tb-detail-list">
 							<!--价格-->
@@ -179,6 +180,7 @@
 								<li class="price iteminfo_price">
 									<dt>促销价</dt>
 									<dd><em>¥</em><b class="sys_item_price" th:text="${category.price}"></b>  </dd>
+									<input type="hidden" id="price" th:value="${category.price}"/>
 								</li>
 								<li class="price iteminfo_mktprice">
 									<dt>原价</dt>
@@ -316,7 +318,7 @@
 							</div>
 							<li>
 								<div class="clearfix tb-btn tb-btn-buy theme-login">
-									<a id="LikBuy" title="点此按钮到下一步确认购买信息" href="#">立即购买</a>
+									<a id="LikBuy" title="点此按钮到下一步确认购买信息">立即购买</a>
 								</div>
 							</li>
 							<li>
@@ -1324,5 +1326,20 @@
 			</div>
 
 	</body>
+	<script type="application/javascript">
+        $('#LikBuy').click(function(){
+			var path_name='/eureka-web/order/addOrder';
+			var categoryId = document.getElementById("categoryId").value;
+			var summoney = document.getElementById("price").value;
 
+			$.post(path_name,{categoryId:categoryId,summoney:summoney},function(result){
+				if(result.code==0){
+					alert("购买成功")
+				}else{
+					alert(result.msg)
+				}
+
+			});
+        })
+	</script>
 </html>

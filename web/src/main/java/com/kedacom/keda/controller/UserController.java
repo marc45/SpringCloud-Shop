@@ -1,7 +1,11 @@
 package com.kedacom.keda.controller;
 
+import com.kedacom.keda.domain.Result;
+import com.kedacom.keda.service.CarouselService;
+import com.kedacom.keda.service.CategoryService;
 import com.kedacom.keda.service.UserService;
 import com.kedacom.keda.service.WebService;
+import com.kedacom.keda.utils.ResultUtil;
 import com.kedacom.model.Carousel;
 import com.kedacom.model.Category;
 import com.kedacom.model.User;
@@ -25,9 +29,11 @@ import java.util.Map;
 @RequestMapping(value="/users")
 public class UserController{
 
-    @Autowired private WebService webService;
-
     @Autowired UserService userService;
+
+    @Autowired CategoryService categoryService;
+
+    @Autowired CarouselService carouselService;
 
     /**
      * 用户登录
@@ -37,33 +43,34 @@ public class UserController{
      * @return
      */
     @PostMapping("/login")
-    public String login(User user,Map<String, Object> model,HttpSession session) {
-        User u = webService.getByName(user.getName());
-        if (u != null) {
-            if (u.getPassword().equals(user.getPassword())) {
-                session.setAttribute("userId",u.getId());
-                session.setAttribute("userName",u.getName());
+    @ResponseBody
+    public Result login(User user,Map<String, Object> model,HttpSession session) {
+        if(userService.login(user)){
+            session.setAttribute("userId",user.getId());
+            session.setAttribute("userName",user.getName());
 
-                Category category = webService.getCategory(1L);
-                List<Carousel> carousels = webService.getCarousels("home");
-                // 楼层
-                model.put("category", category);
-                model.put("carousels", carousels);
-                return "home";
-            }
+            Category category = categoryService.getCategory(1L);
+            List<Carousel> carousels = carouselService.getCarousels("home");
+            // 楼层
+            model.put("category", category);
+            model.put("carousels", carousels);
+            return ResultUtil.success();
         }
-        return "login";
+        return ResultUtil.error(2,"用户名或密码有误");
     }
 
     @PostMapping("/register")
-    public String register(User user,Map<String, Object> model) {
-        webService.saveUser(user);
-        Category category = webService.getCategory(1L);
-        List<Carousel> carousels = webService.getCarousels("home");
-        // 楼层
-        model.put("category", category);
-        model.put("carousels", carousels);
-        return "home";
+    public Result register(User user,Map<String, Object> model) {
+        if(userService.register(user)){
+            Category category = categoryService.getCategory(1L);
+            List<Carousel> carousels = carouselService.getCarousels("home");
+            // 楼层
+            model.put("category", category);
+            model.put("carousels", carousels);
+            return ResultUtil.success();
+        }else{
+            return ResultUtil.error(2,"注册失败");
+        }
     }
 }
 

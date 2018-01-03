@@ -1,0 +1,17 @@
+package com.kedacom.order.repository;
+
+import com.kedacom.order.model.OrderCategory;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+/**
+ * 实习期考核项目
+ * com.kedacom.order.repository
+ * 2018-01-03-13:47
+ * 2018科达科技股份有限公司-版权所有
+ * Created by suxiongwei on 2018-01-03.
+ */
+@Repository
+public interface OrderCategoryRepository extends JpaRepository<OrderCategory,Long> {
+
+}

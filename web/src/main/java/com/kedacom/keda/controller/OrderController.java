@@ -1,9 +1,16 @@
 package com.kedacom.keda.controller;
 
+import com.kedacom.commons.vo.OrderVo;
+import com.kedacom.keda.domain.Result;
 import com.kedacom.keda.service.OrderService;
+import com.kedacom.keda.utils.ResultUtil;
+import com.kedacom.model.Category;
+import com.kedacom.model.Order;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 /**
  * 实习期考核项目
@@ -13,13 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by suxiongwei on 2018-01-02.
  */
 @RestController
+@RequestMapping("/order")
 public class OrderController {
 
     @Autowired OrderService orderService;
 
-    @GetMapping("/addOrder")
-    public String addOrder() {
-        return orderService.addOrder();
+    @PostMapping("/addOrder")
+    public Result addOrder(OrderVo orderVo) {
+        orderService.addOrder(orderVo);
+
+        return ResultUtil.success();
     }
 
 }

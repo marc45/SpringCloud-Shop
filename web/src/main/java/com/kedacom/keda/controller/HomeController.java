@@ -1,6 +1,7 @@
 package com.kedacom.keda.controller;
 
-import com.kedacom.keda.service.WebService;
+import com.kedacom.keda.service.CarouselService;
+import com.kedacom.keda.service.CategoryService;
 import com.kedacom.model.Carousel;
 import com.kedacom.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,14 +25,16 @@ import java.util.Map;
 @Controller
 @RequestMapping("/")
 public class HomeController{
-    @Autowired
-    private WebService webService;
+
+    @Autowired CarouselService carouselService;
+
+    @Autowired CategoryService categoryService;
 
 
     @RequestMapping(method = RequestMethod.GET)
     public String home(Map<String, Object> model,HttpSession session) {
-        Category category = webService.getCategory(1L);
-        List<Carousel> carousels = webService.getCarousels("home");
+        Category category = categoryService.getCategory(1L);
+        List<Carousel> carousels = carouselService.getCarousels("home");
         // 楼层
         model.put("category", category);
         model.put("carousels", carousels);

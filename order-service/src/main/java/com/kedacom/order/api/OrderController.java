@@ -1,12 +1,12 @@
 package com.kedacom.order.api;
 
+import com.kedacom.commons.vo.OrderVo;
+import com.kedacom.model.Category;
 import com.kedacom.order.model.Order;
 import com.kedacom.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 实习期考核项目
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by suxiongwei on 2017-12-28.
  */
 @RestController
+@RequestMapping("/order")
 public class OrderController {
 
     @Autowired
@@ -23,9 +24,10 @@ public class OrderController {
 
     @Autowired DiscoveryClient discoveryClient;
 
-    @GetMapping("/addOrder")
-    public String addOrder(){
-        return "订单服务";
+    @PostMapping("/addOrder")
+    public Boolean addOrder(@RequestBody OrderVo orderVo){
+        orderService.save(orderVo);
+        return true;
     }
 }
 

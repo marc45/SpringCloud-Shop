@@ -136,13 +136,22 @@
 	<script type="application/javascript">
         $('#btn_submit').click(function(){
             if(checkUser()){
-                var path_name='/user-service/user';
+                var path_name='/eureka-web/users/register';
                 var name = document.getElementById("name").value;
                 var password = document.getElementById("password1").value;
-                $('<form action="'+path_name+'" method="post" target = "_blank" style="display:none" >' +
-                    '<input type="hidden"  name="name" value="'+name+'"/>' +
-                    '<input type="hidden"  name="password" value="'+password+'"/>' +
-                    '</form>').appendTo('body').submit();
+                // $('<form action="'+path_name+'" method="post" target = "_blank" style="display:none" >' +
+                //     '<input type="hidden"  name="name" value="'+name+'"/>' +
+                //     '<input type="hidden"  name="password" value="'+password+'"/>' +
+                //     '</form>').appendTo('body').submit();
+
+                $.post(path_name,{name:name,password:password},function(result){
+                    if(result.code==0){
+                        alert("注册成功")
+                    }else{
+                        alert(result.msg)
+                    }
+
+                });
             }
         })
 

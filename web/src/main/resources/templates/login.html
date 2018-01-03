@@ -91,10 +91,20 @@
                 var path_name='/eureka-web/users/login';
                 var name = document.getElementById("name").value;
                 var password = document.getElementById("password").value;
-                $('<form action="'+path_name+'" method="post" target = "_blank" style="display:none" >' +
-                    '<input type="hidden"  name="name" value="'+name+'"/>' +
-                    '<input type="hidden"  name="password" value="'+password+'"/>' +
-                    '</form>').appendTo('body').submit();
+                // $('<form action="'+path_name+'" method="post" target = "_blank" style="display:none" >' +
+                //     '<input type="hidden"  name="name" value="'+name+'"/>' +
+                //     '<input type="hidden"  name="password" value="'+password+'"/>' +
+                //     '</form>').appendTo('body').submit();
+
+                $.post(path_name,{name:name,password:password},function(result){
+                    if(result.code==0){
+                        alert("登录成功")
+					}else{
+                        alert(result.msg)
+					}
+
+                });
+
 			}
 		})
 

@@ -75,8 +75,8 @@ public class CarouselController {
         carouselService.delete(id);
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public List<Carousel> carousels(@RequestParam(value = "usedFor", defaultValue = "home") String usedFor) {
+    @RequestMapping(value = "/getCarousels/{usedFor}",method = RequestMethod.GET, produces = "application/json")
+    public List<Carousel> carousels(@PathVariable(value = "usedFor") String usedFor) {
         ServiceInstance instance = client.getLocalServiceInstance();
         logger.info("/carousel, get, host:" + instance.getHost() + ", serviceId:" + instance.getServiceId() + ",usedFor: " + usedFor);
         List<Carousel> carousels = carouselService.findByUsedFor(usedFor);
