@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50627
 File Encoding         : 65001
 
-Date: 2018-01-03 15:11:50
+Date: 2018-01-04 10:47:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -73,13 +73,17 @@ CREATE TABLE `order` (
   `datetime` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   `summoney` decimal(10,2) DEFAULT NULL,
   `state` tinyint(4) NOT NULL COMMENT '订单状态',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+  `user_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of order
 -- ----------------------------
-INSERT INTO `order` VALUES ('9', '2018-01-03 14:32:32', '8.90', '0');
+INSERT INTO `order` VALUES ('9', '2018-01-03 16:59:50', '8.90', '0', '2');
+INSERT INTO `order` VALUES ('10', '2018-01-04 10:07:43', '8.90', '0', '2');
 
 -- ----------------------------
 -- Table structure for order_category
@@ -96,12 +100,13 @@ CREATE TABLE `order_category` (
   KEY `category_id` (`category_id`),
   CONSTRAINT `order_category_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`),
   CONSTRAINT `order_category_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of order_category
 -- ----------------------------
 INSERT INTO `order_category` VALUES ('5', '9', '2', '1', '2018-01-03 14:32:32');
+INSERT INTO `order_category` VALUES ('6', '10', '2', '1', '2018-01-04 10:07:43');
 
 -- ----------------------------
 -- Table structure for shopping_cart
@@ -141,19 +146,4 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('2', '苏雄伟', '123456', '18361246696', '苏州科达');
-INSERT INTO `user` VALUES ('3', '测试', '123456', 'CCC', null);
-INSERT INTO `user` VALUES ('6', 'aa', 'aa', null, null);
-INSERT INTO `user` VALUES ('7', 'aa', 'aa', null, null);
-INSERT INTO `user` VALUES ('8', 'aa', 'aa', null, null);
-INSERT INTO `user` VALUES ('9', 'aa', 'aa', null, null);
-INSERT INTO `user` VALUES ('10', 'aa', 'aa', null, null);
-INSERT INTO `user` VALUES ('11', 'aa', 'aa', null, null);
-INSERT INTO `user` VALUES ('12', 'aa', 'aa', null, null);
-INSERT INTO `user` VALUES ('13', 'aa', 'aa', null, null);
-INSERT INTO `user` VALUES ('14', 'aa', 'aa', null, null);
-INSERT INTO `user` VALUES ('15', 'sss', 'sss', null, null);
-INSERT INTO `user` VALUES ('16', 'sss', 'sss', null, null);
-INSERT INTO `user` VALUES ('17', 'aaa', 'aaa', null, null);
-INSERT INTO `user` VALUES ('18', 'aaa', 'aaa', null, null);
-INSERT INTO `user` VALUES ('19', 'sss', 'sss', null, null);
-INSERT INTO `user` VALUES ('20', 'sss', 'sss', null, null);
+INSERT INTO `user` VALUES ('3', 'test', '123456', '18361222222', '科达');
