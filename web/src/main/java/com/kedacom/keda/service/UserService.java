@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public interface UserService {
 
     @PostMapping("/user/login")
-    Boolean login(@RequestBody User user);
+    User login(@RequestBody User user);
 
     @PostMapping("user/insertUser") Boolean register(@RequestBody User user);
 }

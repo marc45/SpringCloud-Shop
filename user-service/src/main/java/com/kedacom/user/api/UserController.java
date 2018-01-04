@@ -44,16 +44,11 @@ public class UserController {
     private DiscoveryClient client;
 
     @PostMapping(value = "/login")
-    public boolean login(@RequestBody User user){
+    public User login(@RequestBody User user){
         //@PathVariable是用来获得请求url中的动态参数的，
         // 所以该注解只能支持将参数放在请求url的GET提交方式，所以不管你如何进行设置，@PathVariable都是无法支持Post请求的。
         User u = userService.findByName(user.getName());
-        if (u != null) {
-            if (u.getPassword().equals(user.getPassword())) {
-                return true;
-            }
-        }
-        return false;
+        return u;
     }
 
     @PostMapping(value = "/insertUser")

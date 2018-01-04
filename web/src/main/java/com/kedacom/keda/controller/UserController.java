@@ -11,6 +11,8 @@ import com.kedacom.keda.utils.ResultUtil;
 import com.kedacom.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -27,6 +29,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping(value="/users")
+@SessionAttributes("userId")
 public class UserController{
 
     @Autowired UserService userService;
@@ -39,21 +42,22 @@ public class UserController{
      * 用户登录
      * @param user
      * @param model
-     * @param session
      * @return
      */
     @PostMapping("/login")
     @ResponseBody
-    public Result login(User user,Map<String, Object> model,HttpSession session) {
-        if(userService.login(user)){
-            session.setAttribute("userId",user.getId());
-            session.setAttribute("userName",user.getName());
+    public Result login(User user,Model model,HttpSession session) {
+        User u = userService.login(user);
+        if(u.getPassword().equals(user.getPassword())){
+//            session.setAttribute("userId",user.getId());
+//            session.setAttribute("userName",user.getName());
 
             Category category = categoryService.getCategory(1L);
             List<Carousel> carousels = carouselService.getCarousels("home");
             // 楼层
-            model.put("category", category);
-            model.put("carousels", carousels);
+            model.addAttribute("category", category);
+            model.addAttribute("carousels", carousels);
+            model.addAttribute("userId", u.getId());
             return ResultUtil.success();
         }
         return ResultUtil.error(2,"用户名或密码有误");

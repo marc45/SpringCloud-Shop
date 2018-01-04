@@ -31,6 +31,7 @@ public class OrderServiceImpl implements OrderService {
         Order order = new Order();
         order.setDatetime(new Date());
         order.setState(0);
+        order.setUserId(orderVo.getUserId());
         order.setSummoney(orderVo.getSummoney());
 
         Order order1 = orderRepository.save(order);
