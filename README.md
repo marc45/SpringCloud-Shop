@@ -7,7 +7,7 @@
 * 使用Spring Boot, Spring JPA实现底层服务的CRUD 40分
 * 单元测试，API测试 10分
 * 符合RESTful API规范 10分
-* 实现webservice接口查询订单
+* 实现webservice接口查询订单（暂未实现）
 * 实现服务注册发现组件 10分
 * 实现服务网关组件 10分
 * 实现服务的高可用 10分
