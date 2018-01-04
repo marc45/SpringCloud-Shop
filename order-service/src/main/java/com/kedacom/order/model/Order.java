@@ -26,13 +26,17 @@ public class Order implements Serializable {
     @Column(name = "state")
     private int state;
 
+    @Column(name = "user_id")
+    private Long userId;
+
     public Order() {
     }
 
-    public Order(Date datetime, BigDecimal summoney, int state) {
+    public Order(Date datetime, BigDecimal summoney, int state, Long userId) {
         this.datetime = datetime;
         this.summoney = summoney;
         this.state = state;
+        this.userId = userId;
     }
 
     public Long getId() {
@@ -67,7 +71,16 @@ public class Order implements Serializable {
         this.state = state;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     @Override public String toString() {
-        return "Order{" + "id=" + id + ", datetime=" + datetime + ", summoney=" + summoney + ", state=" + state + '}';
+        return "Order{" + "id=" + id + ", datetime=" + datetime + ", summoney=" + summoney + ", state=" + state
+                + ", userId=" + userId + '}';
     }
 }

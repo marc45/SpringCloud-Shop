@@ -1,10 +1,10 @@
 package com.kedacom.keda.service;
 
+import com.kedacom.carouselservice.model.Carousel;
+import com.kedacom.category.model.Category;
 import com.kedacom.keda.domain.Result;
 import com.kedacom.keda.utils.ResultUtil;
-import com.kedacom.model.Carousel;
-import com.kedacom.model.Category;
-import com.kedacom.model.User;
+import com.kedacom.user.model.User;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

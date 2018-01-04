@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.kedacom</groupId>
-	<artifactId>order</artifactId>
+	<artifactId>order-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>order</name>
+	<name>order-service</name>
 	<description>Demo project for Spring Boot</description>
 
 
@@ -43,11 +43,11 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-		<dependency>
-			<artifactId>model</artifactId>
-			<groupId>com.kedacom</groupId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<artifactId>model</artifactId>-->
+			<!--<groupId>com.kedacom</groupId>-->
+			<!--<version>0.0.1-SNAPSHOT</version>-->
+		<!--</dependency>-->
 
 		<dependency>
 			<artifactId>commons</artifactId>

@@ -1,7 +1,6 @@
 package com.kedacom.order.service.impl;
 
 import com.kedacom.commons.vo.OrderVo;
-import com.kedacom.model.Category;
 import com.kedacom.order.model.Order;
 import com.kedacom.order.model.OrderCategory;
 import com.kedacom.order.repository.OrderCategoryRepository;

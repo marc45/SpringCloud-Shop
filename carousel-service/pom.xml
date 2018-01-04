@@ -42,11 +42,11 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-		<dependency>
-			<artifactId>model</artifactId>
-			<groupId>com.kedacom</groupId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<artifactId>model</artifactId>-->
+			<!--<groupId>com.kedacom</groupId>-->
+			<!--<version>0.0.1-SNAPSHOT</version>-->
+		<!--</dependency>-->
 
 		<dependency>
 			<artifactId>commons</artifactId>

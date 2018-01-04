@@ -1,12 +1,9 @@
 package com.kedacom.keda.service;
 
-import com.kedacom.model.Carousel;
-import com.kedacom.model.Category;
+import com.kedacom.category.model.Category;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import java.util.List;
 
 /**
  * 实习期考核项目

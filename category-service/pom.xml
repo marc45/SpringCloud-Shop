@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.kedacom</groupId>
-	<artifactId>category</artifactId>
+	<artifactId>category-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>category</name>
+	<name>category-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

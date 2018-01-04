@@ -1,11 +1,6 @@
 package com.kedacom.order.service;
 
 import com.kedacom.commons.vo.OrderVo;
-import com.kedacom.model.Category;
-import com.kedacom.order.model.Order;
-import com.kedacom.order.model.OrderCategory;
-
-import java.util.Locale;
 
 /**
  * 实习期考核项目

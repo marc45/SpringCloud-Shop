@@ -14,9 +14,12 @@ public class OrderVo {
 
     private Long categoryId;
 
-    public OrderVo(BigDecimal summoney, Long categoryId) {
+    private Long userId;
+
+    public OrderVo(BigDecimal summoney, Long categoryId, Long userId) {
         this.summoney = summoney;
         this.categoryId = categoryId;
+        this.userId = userId;
     }
 
     public OrderVo() {
@@ -38,7 +41,15 @@ public class OrderVo {
         this.categoryId = categoryId;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     @Override public String toString() {
-        return "OrderVo{" + "summoney=" + summoney + ", categoryId=" + categoryId + '}';
+        return "OrderVo{" + "summoney=" + summoney + ", categoryId=" + categoryId + ", userId=" + userId + '}';
     }
 }

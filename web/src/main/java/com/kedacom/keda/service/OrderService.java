@@ -1,8 +1,6 @@
 package com.kedacom.keda.service;
 
 import com.kedacom.commons.vo.OrderVo;
-import com.kedacom.model.Category;
-import com.kedacom.model.Order;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

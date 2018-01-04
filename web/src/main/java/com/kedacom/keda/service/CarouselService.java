@@ -1,6 +1,6 @@
 package com.kedacom.keda.service;
 
-import com.kedacom.model.Carousel;
+import com.kedacom.carouselservice.model.Carousel;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

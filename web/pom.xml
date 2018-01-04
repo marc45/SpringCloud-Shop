@@ -43,10 +43,29 @@
         </dependency>
 
         <dependency>
-            <artifactId>model</artifactId>
+            <artifactId>user-service</artifactId>
             <groupId>com.kedacom</groupId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <artifactId>order-service</artifactId>
+            <groupId>com.kedacom</groupId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>category-service</artifactId>
+            <groupId>com.kedacom</groupId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>carousel-service</artifactId>
+            <groupId>com.kedacom</groupId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>

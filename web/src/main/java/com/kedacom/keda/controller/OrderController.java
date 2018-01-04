@@ -4,8 +4,6 @@ import com.kedacom.commons.vo.OrderVo;
 import com.kedacom.keda.domain.Result;
 import com.kedacom.keda.service.OrderService;
 import com.kedacom.keda.utils.ResultUtil;
-import com.kedacom.model.Category;
-import com.kedacom.model.Order;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
