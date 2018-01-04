@@ -11,3 +11,10 @@
 * 实现服务注册发现组件 10分
 * 实现服务网关组件 10分
 * 实现服务的高可用 10分
+
+
+## 演示步骤:
+* 1、分别启动：EurekaServerApplication、ApiGatewayApplication、CarouselServiceApplication、CategoryApplication、OrderApplication、UserApplication、KedaApplication
+* 2、首页界面地址：http://localhost:8764/eureka-web
+* 3、登录界面地址：http://localhost:8764/eureka-web/login.html
+* 4、注册界面地址：http://localhost:8764/eureka-web/register.html
