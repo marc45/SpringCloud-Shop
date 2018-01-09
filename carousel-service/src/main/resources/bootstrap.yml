@@ -1,0 +1,12 @@
+
+# 构建配置中心
+spring:
+  application:
+    name: carousel-service
+  cloud:
+    config:
+      uri: http://localhost:1201/
+      profile: default
+      label: master
+server:
+  port: 8772
