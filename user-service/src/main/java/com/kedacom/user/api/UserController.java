@@ -1,7 +1,5 @@
 package com.kedacom.user.api;
 
-import com.kedacom.commons.api.Result;
-import com.kedacom.commons.util.ResultUtil;
 import com.kedacom.user.model.User;
 import com.kedacom.user.service.UserService;
 import org.slf4j.Logger;
@@ -12,14 +10,12 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.URI;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 实习期考核项目
@@ -80,5 +76,22 @@ public class UserController {
 
         return responseEntity;
 
+    }
+
+    /**
+     * 测试Spring Session
+     * @param session
+     * @return
+     */
+    @RequestMapping("/test/cookie")
+    public String cookie(HttpSession session) {
+        //取出session中的browser
+        Object sessionBrowser = session.getAttribute("browser");
+        if (sessionBrowser == null) {
+            System.out.println("不存在sessionBrowser");
+        } else {
+            System.out.println("存在session，browser=" + sessionBrowser.toString());
+        }
+        return "成功";
     }
 }

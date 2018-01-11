@@ -13,6 +13,11 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
+
+zuul:
+  add-host-header: true #解决重定向问题
+  sensitive-headers: #解决HTTP请求头信息中的Cookie和Authorization都没有被正确地传递给具体服务，
+                      #所以最终导致会话状态没有得到保持的问题。
 #Spring Security配置
 #security:
 #  user:

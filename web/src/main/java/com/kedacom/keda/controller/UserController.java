@@ -6,14 +6,14 @@ import com.kedacom.keda.domain.Result;
 import com.kedacom.keda.service.CarouselService;
 import com.kedacom.keda.service.CategoryService;
 import com.kedacom.keda.service.UserService;
-import com.kedacom.keda.service.WebService;
 import com.kedacom.keda.utils.ResultUtil;
 import com.kedacom.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -29,7 +29,6 @@ import java.util.Map;
 
 @Controller
 @RequestMapping(value="/users")
-@SessionAttributes("userId")
 public class UserController{
 
     @Autowired UserService userService;
@@ -49,8 +48,8 @@ public class UserController{
     public Result login(User user,Model model,HttpSession session) {
         User u = userService.login(user);
         if(u.getPassword().equals(user.getPassword())){
-            session.setAttribute("userId",user.getId());
-            session.setAttribute("userName",user.getName());
+            session.setAttribute("userId",u.getId());
+            session.setAttribute("userName",u.getName());
 
             Category category = categoryService.getCategory(1L);
             List<Carousel> carousels = carouselService.getCarousels("home");

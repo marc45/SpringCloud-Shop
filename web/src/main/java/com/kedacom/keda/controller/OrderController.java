@@ -29,9 +29,8 @@ public class OrderController{
 
     @PostMapping("/addOrder")
     public Result addOrder(OrderVo orderVo,HttpSession session) {
-//        Long userId= (Long) session.getAttribute("userId");
-        //TODO session中获取 user_id 问题待处理
-        orderVo.setUserId(2L);
+        Long userId= (Long) session.getAttribute("userId");
+        orderVo.setUserId(userId);
         orderService.addOrder(orderVo);
 
         return ResultUtil.success();
