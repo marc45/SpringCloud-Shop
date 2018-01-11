@@ -13,4 +13,11 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
+#Spring Security配置
+#security:
+#  user:
+#    name: root
+#    password: root
+
+
 

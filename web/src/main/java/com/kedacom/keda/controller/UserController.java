@@ -49,15 +49,14 @@ public class UserController{
     public Result login(User user,Model model,HttpSession session) {
         User u = userService.login(user);
         if(u.getPassword().equals(user.getPassword())){
-//            session.setAttribute("userId",user.getId());
-//            session.setAttribute("userName",user.getName());
+            session.setAttribute("userId",user.getId());
+            session.setAttribute("userName",user.getName());
 
             Category category = categoryService.getCategory(1L);
             List<Carousel> carousels = carouselService.getCarousels("home");
             // 楼层
             model.addAttribute("category", category);
             model.addAttribute("carousels", carousels);
-            model.addAttribute("userId", u.getId());
             return ResultUtil.success();
         }
         return ResultUtil.error(2,"用户名或密码有误");

@@ -28,9 +28,8 @@ public class OrderController{
     @Autowired OrderService orderService;
 
     @PostMapping("/addOrder")
-    public Result addOrder(OrderVo orderVo,Model model, HttpSession session) {
-        Map modelMap = model.asMap();
-//        Long userId= (Long) modelMap.get("userId");
+    public Result addOrder(OrderVo orderVo,HttpSession session) {
+//        Long userId= (Long) session.getAttribute("userId");
         //TODO session中获取 user_id 问题待处理
         orderVo.setUserId(2L);
         orderService.addOrder(orderVo);
