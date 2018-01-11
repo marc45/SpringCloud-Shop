@@ -32,7 +32,6 @@ public class OrderController{
         Long userId= (Long) session.getAttribute("userId");
         orderVo.setUserId(userId);
         orderService.addOrder(orderVo);
-
         return ResultUtil.success();
     }
 
