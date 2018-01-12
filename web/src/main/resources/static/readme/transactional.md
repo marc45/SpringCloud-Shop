@@ -8,7 +8,25 @@
 依赖的时候，框架会自动默认分别注入DataSourceTransactionManager或JpaTransactionManager。
 所以我们不需要任何额外配置就可以用`@Transactional`注解进行事务的使用。</br>
 
-真正在开发业务逻辑时，我们通常在service层接口中使用`@Transactional`来对各个业务逻辑进行事务管理的配置。
+真正在开发业务逻辑时，我们通常在controller层接口中使用`@Transactional`来对各个业务逻辑进行事务管理的配置。</br>
+例如</br>
+```java
+     /**
+     * 测试事务
+     * @return
+     */
+    @RequestMapping("/test/testTransactional")
+    @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
+    public String testTransactional(){
+        // 创建3条记录
+        userService.save(new User("AAA", "123456"));
+        //name长度不能超过5位，会抛出异常，来测试事务是否会回滚
+        userService.save(new User("测试测试测试测试", "123456"));
+        userService.save(new User("BBB", "123456"));
+        return "成功";
+    }
+```
+参见user-service服务 package com.kedacom.user.api 下的testTransactional方法</br>
 
 ## 事务详解
 上面我们使用了默认的事务配置，可以满足一些基本的事务需求，但是当我们项目较大较复杂时（比如，有多个数据源等），这时候需要在声明事务时，指定不同的事务管理器。
@@ -40,6 +58,9 @@
 ```java
 @Transactional(propagation = Propagation.REQUIRED)
 ```
+## 其它
+* service类标签(或接口,一般**不建议**)上添加@Transactional，将整个类纳入spring事务管理；每个业务方法执行时都会开启一个事务，不过这些事务采用相同的管理方式。
+* @Transactional 注解只能应用到 **public** 可见度的方法上。 
 ## 参考博客
 - [Spring Boot中的事务管理](http://blog.didispace.com/springboottransactional/)
 

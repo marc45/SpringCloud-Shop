@@ -23,7 +23,7 @@
 * user-service:用户服务
 * web:web服务
 ## 演示步骤
-- 1、分别启动：EurekaServerApplication、ApiGatewayApplication、ConfigServerGitApplication、CarouselServiceApplication、CategoryApplication、OrderApplication、UserApplication、KedaApplication
+- 1、分别启动：EurekaServerApplication、ApiGatewayApplication、ConfigServerGitApplication、CategoryApplication、OrderApplication、UserApplication、KedaApplication
 - 2、首页界面地址：http://localhost:8764/eureka-web
 - 3、登录界面地址：http://localhost:8764/eureka-web/login.html
 - 4、注册界面地址：http://localhost:8764/eureka-web/register.html

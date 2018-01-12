@@ -1,6 +1,8 @@
 package com.kedacom.user.service;
 
 import com.kedacom.user.model.User;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -10,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
  * 2017科达科技股份有限公司-版权所有
  * Created by suxiongwei on 2017-12-29.
  */
-@Transactional
 public interface UserService {
     User findByName(String name);
 

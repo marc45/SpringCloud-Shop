@@ -10,6 +10,9 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -92,6 +95,21 @@ public class UserController {
         } else {
             System.out.println("存在session，browser=" + sessionBrowser.toString());
         }
+        return "成功";
+    }
+
+    /**
+     * 测试事务
+     * @return
+     */
+    @RequestMapping("/test/testTransactional")
+    @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
+    public String testTransactional(){
+        // 创建3条记录
+        userService.save(new User("AAA", "123456"));
+        //name长度不能超过5位，会抛出异常，来测试事务是否会回滚
+        userService.save(new User("测试测试测试测试", "123456"));
+        userService.save(new User("BBB", "123456"));
         return "成功";
     }
 }
