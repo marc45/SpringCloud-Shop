@@ -16,6 +16,5 @@ import java.util.List;
  */
 @FeignClient("carousel-service")
 public interface CarouselService {
-
     @GetMapping("/carousels/getCarousels/{usedFor}") List<Carousel> getCarousels(@PathVariable("usedFor") String usedFor);
 }

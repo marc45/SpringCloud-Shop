@@ -13,7 +13,7 @@
 ## 学习记录
 - 1、[Redis在Window 下安装](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/redis.md)
 - 2、[Spring Session的集成](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/spring_session.md)
-
+- 3、[Spring Boot配置事务管理](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/transactional.md)
 ## 演示步骤
 - 1、分别启动：EurekaServerApplication、ApiGatewayApplication、CarouselServiceApplication、CategoryApplication、OrderApplication、UserApplication、KedaApplication
 - 2、首页界面地址：http://localhost:8764/eureka-web
