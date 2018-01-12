@@ -80,11 +80,11 @@ spring.redis.database=0
     * 观察控制台打印出的信息可发现Spring Session集成成功。</br>
 * 访问http://localhost:8764/eureka-web/test/cookie?browser=chrome </br>
     * 但是本项目集成了**Spring Cloud Zuul**，服务会进行自动路由转发，当访问以上链接时无法演示出测试效果，每一次的session都是一个新的session。</br>
-针对此问题提供解决方案如下:
+* 针对此问题提供解决方案如下:
 
 ## 会话无法保持的问题解决
 * 当我们将Spring Cloud Zuul作为API网关接入网站类应用时，往往都会碰到会话无法保持的问题：</br>
-通过跟踪一个HTTP请求经过Zuul到具体服务，再到返回结果的全过程。发现在传递的过程中，HTTP请求头信息中的**Cookie**和**Authorization(授权信息)**等敏感头信息被忽略掉了，
+通过跟踪一个HTTP请求经过Zuul到具体服务，再到返回结果的全过程。发现在传递的过程中，HTTP请求头信息中的**Cookie**和 **Authorization**(授权信息) 等敏感头信息被忽略掉了，
 没有正确地传递给具体服务，所以最终导致会话状态没有得到保持的现象。
 - 解决方案:全局设置：zuul.sensitive-headers=
 ```yaml
