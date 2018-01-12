@@ -78,7 +78,8 @@ spring.redis.database=0
 参见web服务 package com.kedacom.keda.controller;包下的 CookieController</br>
 访问http://localhost:8771/test/cookie?browser=chrome </br>
 观察控制台打印出的信息可发现Spring Session集成成功。</br>
-但是本项目集成了**Spring Cloud Zuul**，服务会进行自动路由转发，当访问http://localhost:8764/eureka-web/test/cookie?browser=chrome 时无法演示出测试效果，每一次的session都是一个新的session。</br>
+访问http://localhost:8764/eureka-web/test/cookie?browser=chrome </br>
+但是本项目集成了**Spring Cloud Zuul**，服务会进行自动路由转发，当访问以上链接时无法演示出测试效果，每一次的session都是一个新的session。</br>
 针对此问题提供解决方案如下:
 
 ## 会话无法保持的问题解决
