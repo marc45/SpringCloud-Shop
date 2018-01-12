@@ -146,7 +146,11 @@
 
                 $.post(path_name,{name:name,password:password},function(result){
                     if(result.code==0){
-                        alert("注册成功")
+                        if(confirm("注册成功，去登陆？")){
+                            window.location.href="http://localhost:8080/login.html";
+						}else{
+                            // alert("注册成功")
+						}
                     }else{
                         alert(result.msg)
                     }

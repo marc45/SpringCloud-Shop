@@ -23,10 +23,11 @@
 * user-service:用户服务
 * web:web服务
 ## 演示步骤
-- 1、分别启动：EurekaServerApplication、ApiGatewayApplication、ConfigServerGitApplication、CategoryApplication、OrderApplication、UserApplication、KedaApplication
-- 2、首页界面地址：http://localhost:8764/eureka-web
-- 3、登录界面地址：http://localhost:8764/eureka-web/login.html
-- 4、注册界面地址：http://localhost:8764/eureka-web/register.html
+- 1、开启Redis和MySQL服务
+- 2、分别启动：EurekaServerApplication、ApiGatewayApplication、ConfigServerGitApplication、CategoryApplication、OrderApplication、UserApplication、KedaApplication
+- 3、首页界面地址：http://localhost:8080
+- 4、登录界面地址：http://localhost:8080/login.html
+- 5、注册界面地址：http://localhost:8080/register.html
 
 ## 参考博客
 - [Spring Boot基础教程](http://blog.didispace.com/Spring-Boot%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/)

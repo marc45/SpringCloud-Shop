@@ -6,7 +6,7 @@ spring:
     username: root
     password: root
 server:
-  port: 8764
+  port: 8080
 
 eureka:
   client:
@@ -16,8 +16,11 @@ eureka:
 
 zuul:
   add-host-header: true #解决重定向问题
-  sensitive-headers: #解决HTTP请求头信息中的Cookie和Authorization都没有被正确地传递给具体服务，
-                      #所以最终导致会话状态没有得到保持的问题。
+  sensitive-headers: #解决HTTP请求头信息中的Cookie和Authorization都没有被正确地传递给具体服务，所以最终导致会话状态没有得到保持的问题。
+  routes:
+    eureka-web: #单实例路由配置
+      path: /**
+      url: http://localhost:8080/eureka-web/
 #Spring Security配置
 #security:
 #  user:

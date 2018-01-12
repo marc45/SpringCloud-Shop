@@ -1335,8 +1335,15 @@
 			$.post(path_name,{categoryId:categoryId,summoney:summoney},function(result){
 				if(result.code==0){
 					alert("购买成功")
-				}else{
+				}else if(result.code==3){
+				    if(confirm("您还没有登录，去登录？")){
+				        window.location.href="http://localhost:8764/eureka-web/login.html";
+					}else {
+
+					}
 					alert(result.msg)
+				}else{
+                    alert(result.msg)
 				}
 
 			});

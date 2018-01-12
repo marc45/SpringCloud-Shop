@@ -30,9 +30,13 @@ public class OrderController{
     @PostMapping("/addOrder")
     public Result addOrder(OrderVo orderVo,HttpSession session) {
         Long userId= (Long) session.getAttribute("userId");
-        orderVo.setUserId(userId);
-        orderService.addOrder(orderVo);
-        return ResultUtil.success();
+        if(userId==null){
+            return ResultUtil.error(3,"你还未登录");
+        }else{
+            orderVo.setUserId(userId);
+            orderService.addOrder(orderVo);
+            return ResultUtil.success();
+        }
     }
 
 }

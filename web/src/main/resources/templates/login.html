@@ -98,7 +98,11 @@
 
                 $.post(path_name,{name:name,password:password},function(result){
                     if(result.code==0){
-                        alert("登录成功")
+                        if(confirm("登录成功,跳转到首页?")){
+                            window.location.href="http://localhost:8080";
+						}else{
+                            // alert("登录成功")
+						}
 					}else{
                         alert(result.msg)
 					}

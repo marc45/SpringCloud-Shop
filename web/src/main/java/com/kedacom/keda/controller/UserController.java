@@ -55,6 +55,7 @@ public class UserController{
     }
 
     @PostMapping("/register")
+    @ResponseBody
     public Result register(User user,Map<String, Object> model) {
         if(userService.register(user)){
             Category category = categoryService.getCategory(1L);
