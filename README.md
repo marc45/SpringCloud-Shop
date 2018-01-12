@@ -11,11 +11,19 @@
 - 实现服务的高可用
 
 ## 学习记录
-- 1、[Redis在Window 下安装](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/redis.md)
+- 1、[Redis在Window 下的安装](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/redis.md)
 - 2、[Spring Session的集成](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/spring_session.md)
 - 3、[Spring Boot配置事务管理](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/transactional.md)
+## 服务介绍
+* api-gateway:服务网关
+* eureka-server:服务注册中心
+* config-server-git:分布式配置中心
+* category-service:商品服务
+* order-service:订单服务
+* user-service:用户服务
+* web:web服务
 ## 演示步骤
-- 1、分别启动：EurekaServerApplication、ApiGatewayApplication、CarouselServiceApplication、CategoryApplication、OrderApplication、UserApplication、KedaApplication
+- 1、分别启动：EurekaServerApplication、ApiGatewayApplication、ConfigServerGitApplication、CarouselServiceApplication、CategoryApplication、OrderApplication、UserApplication、KedaApplication
 - 2、首页界面地址：http://localhost:8764/eureka-web
 - 3、登录界面地址：http://localhost:8764/eureka-web/login.html
 - 4、注册界面地址：http://localhost:8764/eureka-web/register.html

@@ -16,7 +16,6 @@
         <module>category-service</module>
         <module>order-service</module>
         <!--<module>model</module>-->
-        <module>carousel-service</module>
     </modules>
 
     <parent>

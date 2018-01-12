@@ -1,9 +1,7 @@
 package com.kedacom.keda.controller;
 
-import com.kedacom.carouselservice.model.Carousel;
 import com.kedacom.category.model.Category;
 import com.kedacom.keda.domain.Result;
-import com.kedacom.keda.service.CarouselService;
 import com.kedacom.keda.service.CategoryService;
 import com.kedacom.keda.service.UserService;
 import com.kedacom.keda.utils.ResultUtil;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,8 +32,6 @@ public class UserController{
 
     @Autowired CategoryService categoryService;
 
-    @Autowired CarouselService carouselService;
-
     /**
      * 用户登录
      * @param user
@@ -52,10 +47,8 @@ public class UserController{
             session.setAttribute("userName",u.getName());
 
             Category category = categoryService.getCategory(1L);
-            List<Carousel> carousels = carouselService.getCarousels("home");
             // 楼层
             model.addAttribute("category", category);
-            model.addAttribute("carousels", carousels);
             return ResultUtil.success();
         }
         return ResultUtil.error(2,"用户名或密码有误");
@@ -65,10 +58,8 @@ public class UserController{
     public Result register(User user,Map<String, Object> model) {
         if(userService.register(user)){
             Category category = categoryService.getCategory(1L);
-            List<Carousel> carousels = carouselService.getCarousels("home");
             // 楼层
             model.put("category", category);
-            model.put("carousels", carousels);
             return ResultUtil.success();
         }else{
             return ResultUtil.error(2,"注册失败");
