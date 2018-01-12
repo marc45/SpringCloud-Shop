@@ -11,7 +11,8 @@
 - 实现服务的高可用
 
 ## 学习记录
-- 1、[Redis在Window 下安装](http://blog.didispace.com/spring-boot-learning-1/)
+- 1、[Redis在Window 下安装](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/redis.md)
+- 2、[Spring Session的集成](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/spring_session.md)
 
 ## 演示步骤
 - 1、分别启动：EurekaServerApplication、ApiGatewayApplication、CarouselServiceApplication、CategoryApplication、OrderApplication、UserApplication、KedaApplication
