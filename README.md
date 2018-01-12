@@ -11,9 +11,9 @@
 - 实现服务的高可用
 
 ## 学习记录
-- 1、[Redis在Window 下的安装](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/redis.md)
-- 2、[Spring Session的集成](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/spring_session.md)
-- 3、[Spring Boot配置事务管理](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/transactional.md)
+- [Redis在Window 下的安装](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/redis.md)
+- [Spring Session的集成](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/spring_session.md)
+- [Spring Boot配置事务管理](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/transactional.md)
 ## 服务介绍
 * api-gateway:服务网关
 * eureka-server:服务注册中心
