@@ -1,23 +1,23 @@
 # 应用集成Spring Session
 
 ## 概念基础
-由于http协议是无状态的协议，为了能够记住请求的状态，于是引入了Session和Cookie的机制。</br>
+* 由于http协议是无状态的协议，为了能够记住请求的状态，于是引入了Session和Cookie的机制。</br>
 
-客户端服务端是通过**JSESSIONID**进行交互的：</br>
-当服务端往session中保存一些数据时，Response中自动添加了一个**Cookie：JSESSIONID：xxxx**，</br>
+* 客户端服务端是通过**JSESSIONID**进行交互的：</br>
+    * 当服务端往session中保存一些数据时，Response中自动添加了一个**Cookie：JSESSIONID：xxxx**，</br>
 在后续的请求中，浏览器也是自动的带上了这个Cookie，**服务端根据Cookie中的JSESSIONID取到了对应的session**。</br>
 
-添加和携带key为JSESSIONID的Cookie都是tomcat和浏览器自动帮助我们完成的。</br>
-不同浏览器，访问是隔离的，甚至重新打开同一个浏览器，JSESSIONID也是不同的。</br>
+    * 添加和携带key为JSESSIONID的Cookie都是tomcat和浏览器自动帮助我们完成的。</br>
+    * 不同浏览器，访问是隔离的，甚至重新打开同一个浏览器，JSESSIONID也是不同的。</br>
 
-存放在客户端的Cookie是**存在安全问题**的：</br>
-可以通过工具篡改浏览器的JSESSIONID“骗”过服务器。因为，服务器只能通过Cookie中的JSESSIONID来辨别身份。
+* 存放在客户端的Cookie是**存在安全问题**的：</br>
+    * 可以通过工具篡改浏览器的JSESSIONID“骗”过服务器。因为，服务器只能通过Cookie中的JSESSIONID来辨别身份。
 ### Session介绍
-Session是存在于**服务器端**的，在单体式应用中，他是由tomcat管理的，存在于**tomcat的内存**中。</br>
-当我们为了解决分布式场景中的session共享问题时，引入了**redis**，其**共享内存，以及支持key自动过期**的特性，非常契合session的特性，我们在企业开发中最常用的也就是这种模式。</br>
+* Session是存在于**服务器端**的，在单体式应用中，他是由tomcat管理的，存在于**tomcat的内存**中。</br>
+* 当我们为了解决分布式场景中的session共享问题时，引入了**redis**，其**共享内存，以及支持key自动过期**的特性，非常契合session的特性，我们在企业开发中最常用的也就是这种模式。</br>
 当然，也可以选择存储在JDBC，Mongo中，这些，spring都提供了默认的实现，在大多数情况下，我们只需要引入配置即可。</br>
 ### Cookie介绍
-Cookie则是存在于**客户端**，更方便理解的说法，可以说存在于浏览器。Cookie并不常用，http协议允许从服务器返回Response时携带一些Cookie，并且同一个域下对Cookie的数量有所限制，之前说过Session的持久化依赖于服务端的策略，而Cookie的持久化则是依赖于本地文件。</br>
+* Cookie则是存在于**客户端**，更方便理解的说法，可以说存在于浏览器。Cookie并不常用，http协议允许从服务器返回Response时携带一些Cookie，并且同一个域下对Cookie的数量有所限制，之前说过Session的持久化依赖于服务端的策略，而Cookie的持久化则是依赖于本地文件。</br>
 虽然说Cookie并不常用，但是有一类特殊的Cookie却是我们需要额外关注的，那便是与**Session相关的sessionId**，他是真正维系客户端和服务端的桥梁。
              
 ## 集成Spring Session步骤
@@ -76,15 +76,16 @@ spring.redis.database=0
     }
 ```
 参见web服务 package com.kedacom.keda.controller;包下的 CookieController</br>
-访问http://localhost:8771/test/cookie?browser=chrome </br>
-观察控制台打印出的信息可发现Spring Session集成成功。</br>
-访问http://localhost:8764/eureka-web/test/cookie?browser=chrome </br>
-但是本项目集成了**Spring Cloud Zuul**，服务会进行自动路由转发，当访问以上链接时无法演示出测试效果，每一次的session都是一个新的session。</br>
+* 访问http://localhost:8771/test/cookie?browser=chrome </br>
+    * 观察控制台打印出的信息可发现Spring Session集成成功。</br>
+* 访问http://localhost:8764/eureka-web/test/cookie?browser=chrome </br>
+    * 但是本项目集成了**Spring Cloud Zuul**，服务会进行自动路由转发，当访问以上链接时无法演示出测试效果，每一次的session都是一个新的session。</br>
 针对此问题提供解决方案如下:
 
 ## 会话无法保持的问题解决
-当我们将Spring Cloud Zuul作为API网关接入网站类应用时，往往都会碰到会话无法保持的问题：</br>
-通过跟踪一个HTTP请求经过Zuul到具体服务，再到返回结果的全过程。我们很容易就能发现，在传递的过程中，HTTP请求头信息中的**Cookie和Authorization**都没有被正确地传递给具体服务，所以最终导致会话状态没有得到保持的现象。
+* 当我们将Spring Cloud Zuul作为API网关接入网站类应用时，往往都会碰到会话无法保持的问题：</br>
+通过跟踪一个HTTP请求经过Zuul到具体服务，再到返回结果的全过程。发现在传递的过程中，HTTP请求头信息中的**Cookie**和**Authorization(授权信息)**等敏感头信息被忽略掉了，
+没有正确地传递给具体服务，所以最终导致会话状态没有得到保持的现象。
 - 解决方案:全局设置：zuul.sensitive-headers=
 ```yaml
 zuul:
