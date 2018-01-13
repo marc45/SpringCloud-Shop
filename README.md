@@ -11,6 +11,7 @@
 - 实现服务的高可用
 
 ## 学习记录
+- [微服务框架](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/micro_service.md)
 - [Redis在Window 下的安装](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/redis.md)
 - [Spring Session的集成](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/spring_session.md)
 - [Spring Boot配置事务管理](https://github.com/suxiongwei/keda/blob/master/web/src/main/resources/static/readme/transactional.md)
