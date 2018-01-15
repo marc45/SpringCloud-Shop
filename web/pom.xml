@@ -2,6 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <groupId>com.kedacom</groupId>
+    <artifactId>web</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+
     <parent>
         <artifactId>keda</artifactId>
         <groupId>com.kedacom</groupId>
@@ -17,7 +23,6 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>web</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
