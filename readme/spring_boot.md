@@ -20,7 +20,7 @@
 * 构建War包，发布到Tomcat
     * 1、修改pom</br>
     ```xml
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     ```
     * 2、导入依赖
     ````xml
@@ -41,7 +41,8 @@
     	}
     
     	public static void main(String[] args) {
-  	        new SpringApplicationBuilder(KedaApplication.class).web(true).run(args);
+    	    new SpringApplicationBuilder(KedaApplication.class).web(true).run(args);
+	        
     	}
     }
     ````

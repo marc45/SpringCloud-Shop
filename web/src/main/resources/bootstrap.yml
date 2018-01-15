@@ -5,7 +5,7 @@ spring:
     name: eureka-web
   cloud:
     config:
-      uri: http://localhost:1201/
+      uri: http://localhost:config-server/
       profile: default
       label: master
 server:
