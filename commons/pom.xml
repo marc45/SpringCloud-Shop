@@ -11,12 +11,6 @@
 	<name>commons</name>
 	<description>Demo project for Spring Boot</description>
 
-	<parent>
-		<artifactId>keda</artifactId>
-		<groupId>com.kedacom</groupId>
-		<version>1.0-SNAPSHOT</version>
-	</parent>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -25,15 +19,4 @@
 
 	<dependencies>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
-
 </project>
