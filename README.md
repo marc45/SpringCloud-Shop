@@ -11,16 +11,16 @@
 - 实现服务的高可用
 
 ## 学习记录
-- [微服务框架](https://github.com/suxiongwei/keda/readme/micro_service.md)
-- [Spring Boot](https://github.com/suxiongwei/keda/readme/spring_boot.md)
-- [Redis在Window 下的安装](https://github.com/suxiongwei/keda/readme/redis.md)
-- [Spring Session的集成](https://github.com/suxiongwei/keda/readme/spring_session.md)
-- [Spring Boot配置事务管理](https://github.com/suxiongwei/keda/readme/transactional.md)
-- [Spring Cloud:注册中心Eureka](https://github.com/suxiongwei/keda/readme/eureka.md)
-- [Spring Cloud:负载均衡Ribbon](https://github.com/suxiongwei/keda/readme/ribbon.md)
-- [Fegion声明式服务调用](https://github.com/suxiongwei/keda/readme/)
-- [Zuul实现微服务网关](https://github.com/suxiongwei/keda/readme/)
-- [Config分布式统一配置中心](https://github.com/suxiongwei/keda/readme/)
+- [微服务框架](https://github.com/suxiongwei/keda/blob/master/readme/micro_service.md)
+- [Spring Boot](https://github.com/suxiongwei/keda/blob/master/readme/spring_boot.md)
+- [Redis在Window 下的安装](https://github.com/suxiongwei/keda/blob/master/readme/redis.md)
+- [Spring Session的集成](https://github.com/suxiongwei/keda/blob/master/readme/spring_session.md)
+- [Spring Boot配置事务管理](https://github.com/suxiongwei/keda/blob/master/readme/transactional.md)
+- [Spring Cloud:注册中心Eureka](https://github.com/suxiongwei/keda/blob/master/readme/eureka.md)
+- [Spring Cloud:负载均衡Ribbon](https://github.com/suxiongwei/keda/blob/master/readme/ribbon.md)
+- [Fegion声明式服务调用](https://github.com/suxiongwei/keda/blob/master/readme/)
+- [Zuul实现微服务网关](https://github.com/suxiongwei/keda/blob/master/readme/)
+- [Config分布式统一配置中心](https://github.com/suxiongwei/keda/blob/master/readme/)
 
 ## 服务介绍
 * api-gateway:服务网关
