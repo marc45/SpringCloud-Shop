@@ -18,8 +18,8 @@
 - [Spring Boot配置事务管理](https://github.com/suxiongwei/keda/blob/master/readme/transactional.md)
 - [Spring Cloud:注册中心Eureka](https://github.com/suxiongwei/keda/blob/master/readme/eureka.md)
 - [Spring Cloud:负载均衡Ribbon](https://github.com/suxiongwei/keda/blob/master/readme/ribbon.md)
-- [Fegion声明式服务调用](https://github.com/suxiongwei/keda/blob/master/readme/)
-- [Zuul实现微服务网关](https://github.com/suxiongwei/keda/blob/master/readme/)
+- [Fegion声明式服务调用](https://github.com/suxiongwei/keda/blob/master/readme/fegion.md)
+- [Zuul实现微服务网关](https://github.com/suxiongwei/keda/blob/master/readme/zuul.md)
 - [Config分布式统一配置中心](https://github.com/suxiongwei/keda/blob/master/readme/config.md)
 
 ## 服务介绍
