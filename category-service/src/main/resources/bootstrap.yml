@@ -2,11 +2,12 @@
 # 构建配置中心
 spring:
   application:
-    name: eureka-web
+    name: category-service
   cloud:
     config:
       uri: http://localhost:8764/CONFIG-SERVER/
       profile: default
       label: master
+
 server:
-  port: 8771
+  port: 8765

@@ -20,7 +20,7 @@
 - [Spring Cloud:负载均衡Ribbon](https://github.com/suxiongwei/keda/blob/master/readme/ribbon.md)
 - [Fegion声明式服务调用](https://github.com/suxiongwei/keda/blob/master/readme/)
 - [Zuul实现微服务网关](https://github.com/suxiongwei/keda/blob/master/readme/)
-- [Config分布式统一配置中心](https://github.com/suxiongwei/keda/blob/master/readme/)
+- [Config分布式统一配置中心](https://github.com/suxiongwei/keda/blob/master/readme/config.md)
 
 ## 服务介绍
 * api-gateway:服务网关
