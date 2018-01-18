@@ -212,13 +212,13 @@ if (!Object.create) {
                         // in Opera Mini => not a reliable check
                         // Object.prototype.__proto__ === null
 
-    // Check for document.domain and active x support
-    // No need to use active x approach when document.domain is not set
+    // Check for document.model and active x support
+    // No need to use active x approach when document.model is not set
     // see https://github.com/es-shims/es5-shim/issues/150
     // variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
     /* global ActiveXObject */
     var shouldUseActiveX = function shouldUseActiveX() {
-        // return early if document.domain not set
+        // return early if document.model not set
         if (!document.domain) {
             return false;
         }
@@ -230,7 +230,7 @@ if (!Object.create) {
         }
     };
 
-    // This supports IE8 when document.domain is used
+    // This supports IE8 when document.model is used
     // see https://github.com/es-shims/es5-shim/issues/150
     // variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
     var getEmptyViaActiveX = function getEmptyViaActiveX() {

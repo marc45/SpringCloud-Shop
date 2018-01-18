@@ -1,8 +1,8 @@
 package com.kedacom.keda.handle;
 
-import com.kedacom.keda.domain.Result;
+import com.kedacom.commons.api.Result;
+import com.kedacom.commons.util.ResultUtil;
 import com.kedacom.keda.exception.MyException;
-import com.kedacom.keda.utils.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;

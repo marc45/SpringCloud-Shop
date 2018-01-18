@@ -1,10 +1,10 @@
 package com.kedacom.keda.controller;
 
 import com.kedacom.category.model.Category;
-import com.kedacom.keda.domain.Result;
+import com.kedacom.commons.api.Result;
+import com.kedacom.commons.util.ResultUtil;
 import com.kedacom.keda.service.CategoryService;
 import com.kedacom.keda.service.UserService;
-import com.kedacom.keda.utils.ResultUtil;
 import com.kedacom.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

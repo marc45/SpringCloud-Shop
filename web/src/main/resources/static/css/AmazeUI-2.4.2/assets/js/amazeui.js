@@ -15012,7 +15012,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    if (domain) {
-	      cookieText += '; domain=' + domain;
+	      cookieText += '; model=' + domain;
 	    }
 
 	    if (secure) {

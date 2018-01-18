@@ -21,7 +21,9 @@
 - [Fegion声明式服务调用](https://github.com/suxiongwei/keda/blob/master/readme/fegion.md)
 - [Zuul实现微服务网关](https://github.com/suxiongwei/keda/blob/master/readme/zuul.md)
 - [Config分布式统一配置中心](https://github.com/suxiongwei/keda/blob/master/readme/config.md)
-
+- [SpringData-JPA的集成](https://github.com/suxiongwei/keda/blob/master/readme/springData-jpa.md)
+- [编码规范](https://github.com/suxiongwei/keda/blob/master/readme/coding_standards.md)
+- [基于ACCESS TOKEN的权限解决方案](https://github.com/suxiongwei/keda/blob/master/readme/access_token.md)
 ## 服务介绍
 * api-gateway:服务网关
 * eureka-server:服务注册中心

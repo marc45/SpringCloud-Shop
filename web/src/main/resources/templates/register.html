@@ -136,7 +136,7 @@
 	<script type="application/javascript">
         $('#btn_submit').click(function(){
             if(checkUser()){
-                var path_name='/eureka-web/users/register';
+                var path_name='/web/users/register';
                 var name = document.getElementById("name").value;
                 var password = document.getElementById("password1").value;
                 // $('<form action="'+path_name+'" method="post" target = "_blank" style="display:none" >' +
@@ -147,7 +147,7 @@
                 $.post(path_name,{name:name,password:password},function(result){
                     if(result.code==0){
                         if(confirm("注册成功，去登陆？")){
-                            window.location.href="http://localhost:8080/login.html";
+                            window.location.href="http://localhost:8080/web/login.html";
 						}else{
                             // alert("注册成功")
 						}

@@ -21,7 +21,7 @@ public class AccessFilter extends ZuulFilter{
 
     private static Logger logger = LoggerFactory.getLogger(AccessFilter.class);
 
-    private static final String[] IGNORE_URI = {"/eureka-web/login"};
+    private static final String[] IGNORE_URI = {"/login","/css/","/js/","/img/"};
 
     //过滤器的类型，它决定过滤器在请求的哪个生命周期中执行。
     @Override public String filterType() {
@@ -61,14 +61,20 @@ public class AccessFilter extends ZuulFilter{
 //            Object accessToken = request.getParameter("accessToken");//http://localhost:8764/eureka-provider/index?accessToken=token
 
 //            Long userId = (Long) session.getAttribute("userId");
-//            if(userId == null) {
-//                logger.warn("userId is empty");
-//                ctx.setSendZuulResponse(false);
-//                ctx.setResponseStatusCode(401);
-//                return null;
-//            }
-//
-//            logger.info("userId ok");
+
+            Long userId = 1L;//目前没有将登录验证功能集成到API网关层，因此需要手写ID
+            if(userId == null) {
+                logger.warn("userId is empty");
+                ctx.setSendZuulResponse(false);
+                ctx.setResponseStatusCode(401);
+                ctx.setResponseBody("您还没有登录");
+                return null;
+            }
+
+            logger.info("userId ok");
+            //路由转发
+            ctx.setSendZuulResponse(true);// 对该请求进行路由
+            ctx.setResponseStatusCode(200);
             return null;
         }else {
             return null;

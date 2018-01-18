@@ -50,3 +50,8 @@
     }
     ````
     >多数Spring Boot微服务应用最终是要部署在Docker
+
+### 开发过程中遇到的问题及其解决方案
+报错：<font color=red>Cannot determine embedded database driver class for database type NONE</font></br>
+原因：springboot启动时会自动注入数据源和配置jpa</br>
+解决方案：解决：在@SpringBootApplication中排除其注入 **@SpringBootApplication(exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})**

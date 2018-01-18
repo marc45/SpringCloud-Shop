@@ -1126,8 +1126,7 @@
 						<ul class="am-thumbnails" th:each="level1 : ${category.getChilds()}">
 							<li >
 								<div class="list ">
-
-									<a th:href="@{/category/introduction/{categoryId}(categoryId=${level1.id})}">
+									<a th:href="@{/web/category/introduction/{categoryId}(categoryId=${level1.id})}">
 										<img th:src="${level1.img}" />
 										<div class="pro-title" th:text="${level1.name}"></div>
 										<span class="e-price" th:text="${level1.price}"></span>

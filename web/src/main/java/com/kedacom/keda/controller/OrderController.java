@@ -1,18 +1,13 @@
 package com.kedacom.keda.controller;
 
+import com.kedacom.commons.api.Result;
+import com.kedacom.commons.util.ResultUtil;
 import com.kedacom.commons.vo.OrderVo;
-import com.kedacom.keda.domain.Result;
 import com.kedacom.keda.service.OrderService;
-import com.kedacom.keda.utils.ResultUtil;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.Map;
 
 /**
  * 实习期考核项目
