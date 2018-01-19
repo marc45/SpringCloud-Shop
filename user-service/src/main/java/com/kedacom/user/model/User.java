@@ -43,6 +43,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public User(String name, String password, String phone) {
+        this.name = name;
+        this.password = password;
+        this.phone = phone;
+    }
+
     public Long getId() {
         return id;
     }
