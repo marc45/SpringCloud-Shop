@@ -51,7 +51,9 @@
     }
     ````
     >多数Spring Boot微服务应用最终是要部署在Docker
-
+    1、每一个微服务足够构成一个独立的小应用(从DB到UI)
+    2、微服务之间只能通过service api进行交互
+    3、在运行时，每个实例通常是一个云虚拟机或者 Docker容器。
 ### 开发过程中遇到的问题及其解决方案
 报错：<font color=red>Cannot determine embedded database driver class for database type NONE</font></br>
 原因：springboot启动时会自动注入数据源和配置jpa</br>
