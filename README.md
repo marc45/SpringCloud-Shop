@@ -25,6 +25,7 @@
 - [编码规范](https://github.com/suxiongwei/keda/blob/master/readme/coding_standards.md)
 - [基于ACCESS TOKEN的权限解决方案](https://github.com/suxiongwei/keda/blob/master/readme/access_token.md)
 - [集成redis做缓存](https://github.com/suxiongwei/keda/blob/master/readme/redis_cache.md)
+- [修改github上仓库的项目语言](https://github.com/suxiongwei/keda/blob/master/readme/github_language.md)
 ## 服务介绍
 * api-gateway:服务网关
 * eureka-server:服务注册中心
