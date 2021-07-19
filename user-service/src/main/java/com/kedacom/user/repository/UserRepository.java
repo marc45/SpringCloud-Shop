@@ -5,6 +5,7 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * 实习期考核项目
@@ -14,6 +15,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Created by suxiongwei on 2017-12-29.
  */
 @CacheConfig(cacheNames = "users")
+@Repository
 public interface UserRepository extends JpaRepository<User,Long>{
 
     @Cacheable(key = "#p0")
